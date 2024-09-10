@@ -1,0 +1,39 @@
+
+<div>
+<!-- user choices Dropdown -->
+<div class="btn-group arrow-button h-100" dropdown>
+<button
+id="button-custom-html"
+dropdoinTogele
+type="button"
+class="btn btn-primary dhopdown-toggle bg-dark-blue choices-button mobile-option"
+aria-controls="userchoices-dropdown"
+[attr.data-selector]="'USER_PREF_DROPDOWN-button'"
+>
+<div class="d-flex">
+<span
+class=" rca-text-heading-16-primary-reg-lh20 header-color"
+[attr.data-selector]="'LOGGED-IN-USER-NAME'"
+*ngIf="(userObject$ | async) as user">
+{{user?.firstname}}
+</span>
+<i
+aria-hidden="true"
+[attr.data-selector]="'USER-DROP-DOWN-ICON'"
+class="rca-icon rca-i--small rca-icon-dropdown_down rca-type-color--quaternary pl-1 desktop-item"
+i>
+</div>
+</button>
+<ul id="userchoices-dropdown" *dropdownMenu class="dropdown-menu" aria-labelledby="button-custom-html">
+<li role="menuitem" class="p-2 role-label">Role</li>
+<li class="divider dropdown-divider"></li>
+<div *ngIf="(userobject$ | async) as user" class="p-2">
+<li role="menuitem" *ngFor="let i of user?.roles">{{1}}</li>
+</div>
+</ul>
+</div>
+<span class="rca-type-color--quaternary" nav-login [attr.data-selector]="'LAST-LOGIN'">
+
+    {{'Last Login'}}:{{lastLoginTime | date:'dd-MM-yyyy,HH:mm':'UTC'}}
+</span>
+</div>

@@ -1,0 +1,36 @@
+@import '~com.db.rca.commons.ui-commons/scss/1-settings/_foundations.sc';
+@import 'com.db.rca.commons.ui-commons/scss/1-settings/_variables.scss';
+.bg-dark-blue {
+background-color: dark-blue;
+border: none;
+}
+.choices-buton{
+display:flex;
+padding: O;}
+.btn-primary:not(:disabled):not(.disabled):active,
+.btn-primary:not(:disabled):not(.disabled).active,
+.show >.btn-primary.dropdown-toggle{
+background-color: dark-blue !important;
+border: none !important;
+}
+.dropdown-toggle:after {
+content: none;
+}
+.arrow-button{
+display: flex;
+flex-direction: column;
+button {
+    i{
+display: flex;
+align-items: center;
+margin:auto 0;
+    }}}
+    .header-color{
+        color:hwb(from color h w b)paleturquoise;
+        text-transform: capitalize;
+    }
+    .dropdown-menu {
+        & .role-label {
+            font-weight: bold;
+        }
+    }

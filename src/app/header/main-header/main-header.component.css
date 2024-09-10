@@ -1,0 +1,136 @@
+@import '~com.db.rca.commons.ui-commons/scss/1-settings/_variables';
+.page-header{
+position: fixed;
+width: 100%;
+z-index: 1001;
+background-color: white;
+}
+.separator
+{
+border-bottom: 1px solid white;
+}
+.logo-container{
+display: flex;
+flex-direction: column;
+}
+
+.logo-title,
+.logo-sub-title{
+font-size: 20px;
+line-height: 20px;
+}
+.logo-title{
+color: white;
+margin: 0;
+}
+.logo-sub-title{
+font-size: 14px;
+color: white;
+}
+.app-logo{
+margin-bottom: 3px !important;
+img
+{
+width: 100px;;
+height: auto;
+.logo
+img{
+max-width: 100%;
+}
+}
+.bg-props{
+background-color: dark-blue;
+}
+.navbar{
+height: 48px;
+max-height: 48px;
+width: 100%;
+}
+.navbar ::ng-deep .nav-link {
+color: white;
+max-height: 48px;
+padding: 16px 16px l6px 0;
+line-height: 1rem;
+font-size: 1rem;
+
+&:hover{
+color: bright-blue !important;
+
+>.dropdown-menu.show{
+    display: block;
+}
+}
+&.active{
+    color:bright-blue !important;
+}
+
+&.in-active{
+    color:white!important;
+}
+}
+.bg-primary{
+    background-color: dark-blue!important;
+}
+.header-menu-items{
+color: white;
+font-size: 16pх;
+}
+i{
+height: 20px;
+width: 20px;
+}
+.user-info {
+color: white;
+padding: 10px;
+display: block;
+.rca-icon-dropdown_down:before {
+color: $white !important;
+padding-left: 8px !important;
+}}
+.user-icon {
+float: left;
+padding: брх 0;
+font-size: 17px;
+}
+.right-menu-items {
+position:relative;
+}
+.user-dropdown {
+top: 10px;
+position: relative;
+}
+.rca-icon{
+font-size:12px;
+}
+}
+.rca-icon {
+color: white !important;
+width: 24px;
+height: 2apx;
+}
+.icon-margin{
+margin: 10рх 1рх 0 О;
+}
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus{
+outline: none;
+box-shadow: none;
+}
+.nav-menu-container{
+margin-top: 0;
+background-color: dark-blue;
+border-top: 1px solid white;
+border-bottom: 1px solid white;
+}
+.opacity-40 {
+opacity: 0.4;
+}
+.home-icon {
+display: flex;
+flex-direction: column;
+justify-content: center;
+padding-right: 16px
+}
+
+

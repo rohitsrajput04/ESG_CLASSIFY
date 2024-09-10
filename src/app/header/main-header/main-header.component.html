@@ -1,0 +1,46 @@
+<div class="page-header">
+    <div class="bg-props separator">
+        <div class="container-fluid">
+
+            <div class="d-flex logo-header">
+
+                <div class="logo-container">
+                    <div class="logo-wrapper">
+                        <div class="app logo">
+
+
+                            <a href="/home">
+                                <img class="logo-img" src="./assets/images/images.png" alt="EDEN-LOGO"
+                                    [attr.data-selector]="'EDEN-LOGO-IMAGE'" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <ul class="float-left desktop-item mb-0">
+                        <li>
+                            <app-user-choices></app-user-choices>
+                        </li>
+                    </ul>
+                    <ul class="float-right mb-0">
+                        <li>
+                            <a [href]="db_url.DB_URL_LINK">
+                                <img class="logo-img ml-4" src="./assets/images/db-logo-white.png" alt="ESG-LOGO"
+                                    [attr.data-selector]="'LOGO-IMAGE'">
+                            </a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<!--NAV MENU BAR-->
+<app-nav-menu-bar></app-nav-menu-bar>
+
+</div>
+ <!-- Toaster Component -->
+ <app-toaster
+* ngIf=" showToasterMessage$ | async as toaster" [message]="toaster.message" [type]="toaster.type"
+                                    [attr.data-selector]="'TOASTER_MESSAGE'"
+(closeToaster)=" onClosingToaster()">
+                                </app-toaster>
