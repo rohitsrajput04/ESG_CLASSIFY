@@ -1,0 +1,38 @@
+:host{
+    width: 2008;
+display:block;
+padding: 159хв;
+background-color: Adark-blue;
+position: absolute;
+bottom: Opx;
+}
+footer {
+width: 100%;
+span {
+line-height: 24px;
+}
+}
+a {
+&:focus,
+&:focus-within,
+&:active{
+color:white;
+}
+&:hover{
+cursor:pointer;
+color:bright-blue;
+}
+}
+@media all and (min-width:769px){
+    br{
+        display: none;
+    }
+    .footer-divider{
+        padding:0px 10px;
+    }
+}
+@media all and (max-width:768px){
+    .footer-divider{
+        display: none;
+    }
+}

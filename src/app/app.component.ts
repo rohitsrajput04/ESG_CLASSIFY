@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
@@ -9,5 +10,9 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'ESG_CLASSIFYUI';
+  allowed:boolean;
+  constructor(public title:Title){
+  this.title.setTitle('Eden-ESG Services');
+this.allowed=true;
+}
 }
