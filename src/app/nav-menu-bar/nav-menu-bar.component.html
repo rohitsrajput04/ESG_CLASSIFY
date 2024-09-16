@@ -1,0 +1,25 @@
+<div class="nav app-nav-menu-container">
+<nav class="container-fluid navbar bg-primary navbar-dark navbar-expand-lg">
+
+    <ul class="d-flex esg-menu-option">
+        <li class="nav-item esg-home-icon pr-2"[attr.data.data-selector]="'ESG-HOME-ICON'">
+            <a id="home" class="esg-home-icon-margin menu-link" routerLinkActive="active" (click)="returnToHome()">
+<i aria-hidden="true" class="desktop-item rca-icon esg-home-icon-color">rca_home
+
+</i>
+
+            </a>
+        </li>
+        <li class="menu-item-link" *ngFor="let navMenuItem of navMenu;let navItemIndex =index">
+            <a class="menu-link"[attr.data.selector]="navMenuItem.selector"
+            [routerLink]="navMenuItem.route"
+            [state]="{clearSavedResponse:true}"
+            routerLinkActive="active">
+        </a>{{navMenuItem.menu_name}}
+        <span class="rca-type-color--quaternary nav-divider">|</span>
+    </a>
+        </li>
+    </ul>
+</nav>
+
+</div>
