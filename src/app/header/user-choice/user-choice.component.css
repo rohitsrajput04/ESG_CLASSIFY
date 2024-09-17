@@ -1,5 +1,3 @@
-@import '~com.db.rca.commons.ui-commons/scss/1-settings/_foundations.sc';
-@import 'com.db.rca.commons.ui-commons/scss/1-settings/_variables.scss';
 .bg-dark-blue {
 background-color: dark-blue;
 border: none;

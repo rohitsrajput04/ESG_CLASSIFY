@@ -6,11 +6,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderModule } from './header/header.module';
 import { HttpClient } from '@angular/common/http';
 import { ModalModule } from 'ngx-bootstrap/modal';
-import { StoreModule } from '@ngrx/store';
+import { ReactiveFormsModule } from '@angular/forms'; // Correct import
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule,BrowserAnimationsModule, CommonModule,AppRoutingModule,HeaderModule,HttpClient,ModalModul],
+  imports: [ReactiveFormsModule,BrowserAnimationsModule, CommonModule,HeaderModule,HttpClient,ModalModule],
   providers: [], // Add providers here
   bootstrap: [AppComponent]
 })

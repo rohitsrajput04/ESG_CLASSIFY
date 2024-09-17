@@ -2,6 +2,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ESG_ROUTES } from './routing.routes';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SharedModule } from '../../shared/shared.module';
 
 export const routes: Routes = [
 
