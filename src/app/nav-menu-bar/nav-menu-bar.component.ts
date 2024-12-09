@@ -11,11 +11,10 @@ import { FeatureFlagSelectors } from '../feature-flag';
 import { FeatureFlagActions } from '../feature-flag/actions';
 
 @Component({
-  selector: 'app-nav-menu-bar',
-  standalone: true,
-  imports: [],
-  templateUrl: './nav-menu-bar.component.html',
-  styleUrl: './nav-menu-bar.component.css'
+    selector: 'app-nav-menu-bar',
+    imports: [],
+    templateUrl: './nav-menu-bar.component.html',
+    styleUrl: './nav-menu-bar.component.css'
 })
 export class NavMenuBarComponent implements OnInit {
   navMenu = NavMenuList;

@@ -6,11 +6,10 @@ import { Coreselectors } from '../../store/selectors/selectors';
 import { CoreActions } from '../../store/actions/core.actions';
 
 @Component({
-  selector: 'app-main-header',
-  standalone: true,
-  imports: [],
-  templateUrl: './main-header.component.html',
-  styleUrl: './main-header.component.css'
+    selector: 'app-main-header',
+    imports: [],
+    templateUrl: './main-header.component.html',
+    styleUrl: './main-header.component.css'
 })
 export class MainHeaderComponent {
   db_url = "https://www.javapoint.com"//DB_URL_LINK;

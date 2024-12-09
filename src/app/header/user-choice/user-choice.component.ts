@@ -5,11 +5,10 @@ import { User, StoreAuth } from '../../store/authenticate/models/authenticate.mo
 import { WebSsoAuthSelectors } from '../../store/authenticate/selectors/authenticate.selectors';
 
 @Component({
-  selector: 'app-user-choice',
-  standalone: true,
-  imports: [],
-  templateUrl: './user-choice.component.html',
-  styleUrl: './user-choice.component.css'
+    selector: 'app-user-choice',
+    imports: [],
+    templateUrl: './user-choice.component.html',
+    styleUrl: './user-choice.component.css'
 })
 export class UserChoiceComponent implements OnInit{
   lastLoginTime:Date;
