@@ -7,6 +7,7 @@ import { RouterModule } from "@angular/router";
 import { CommonModule } from "@angular/common";
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { ToasterComponent } from "../toaster/toaster/toaster.component";
 
 @NgModule({
     declarations:[
@@ -14,11 +15,11 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
         MainHeaderComponent,
         NavMenuBarComponent,
         UserChoiceComponent,
-       // ToasterCompponent
+        ToasterComponent
 
     ],
     imports:[RouterModule,CommonModule,BrowserModule,BrowserAnimationsModule],
-    exports:[AppHeaderComponent,MainHeaderComponent],
+    exports:[AppHeaderComponent,MainHeaderComponent,ToasterComponent],
 
 })
 export class HeaderModule{}

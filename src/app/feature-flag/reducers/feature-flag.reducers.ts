@@ -1,4 +1,4 @@
-import { FeatureFlagActions } from "..";
+import { FeatureFlagActions } from "../actions";
 import { FEATURE_FLAG_INITIAL_STATE, STATUS_LOADING_STATE, STATUS_SUCCESS_STATE } from "../constants";
 import { StoreFeatureFlag } from "../models/feature-flag.model";
 import { Action, createReducer, on } from "@ngrx/store";

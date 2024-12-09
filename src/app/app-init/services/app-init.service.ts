@@ -3,82 +3,65 @@ import { AppConfigService } from "./app-config.service";
 import { Store } from "@ngrx/store";
 import { Apollo } from "apollo-angular";
 import { BsModalService } from "ngx-bootstrap/modal";
-
-
 import { AppConfig, StoreAppConfig } from "../../store/models/app-config.model";
-import { HttpLink, InMemoryCache } from "@apollo/client/core";
-import { link } from "fs";
 import { WebSsoAuthActions } from "../../store/authenticate/actions/authenticate.actions";
 import { Observable, catchError, tap } from "rxjs";
-import { appConfig } from "../../app.config";
-import { resolve } from "dns";
+import { AppConfigActions } from "../../store/actions";
+
 
 @Injectable({ providedIn: 'root' })
-export class AppInitService{
-
-    defer:Promise<any> | null;
+export class AppInitService {
     constructor(
-        private appConfigService:AppConfigService,
-        private modalService:BsModalService,
-        private store:Store<StoreAppConfig>,
-        private apollo:Apollo,
-        private httpLink:HttpLink
-    ){
-        this.defer=null;
-    }
-    init(){
-        if(!this.defer)
-            this.defer=new Promise<void>(async(resolve)=>{
-        //get initial config
-        const appConfig:AppConfig=await this.getAppConfig().toPromise();
-//graphql for ESG namespace
+        private appConfigService: AppConfigService,
+        private modalService: BsModalService,
+        private store: Store<StoreAppConfig>,
+        private apollo: Apollo,
+        private httpLink: HttpLink
+    ) { }
+
+    async init() {
+        // Get initial config
+        const appConfig: AppConfig = await this.getAppConfig().toPromise();
+        // Set up GraphQL for ESG namespace
         this.setGraphql(appConfig.graphqlAPIUrl);
-        //get user
+        // Get user details
         this.getUser();
-        resolve();
-            
-    });
     }
-   
-return this.defer;
 
-}
-//setup graphql endpoint
-public setGraphql(graphqlUrl:string,projectNamespace='GRAPHQL_NAMESPACE_ESG'):void{
-    if(!this.apollo.use(projectNamespace)){
-this.apollo.createNamed(projectNamespace,{
-    cache:new InMemoryCache({
-        addTypename:false
-    }),
-    link:this.httpLink.create({
-        uri:graphqlUrl,
-    })
-});
+    // Setup GraphQL endpoint
+    public setGraphql(graphqlUrl: string, projectNamespace = 'GRAPHQL_NAMESPACE_ESG'): void {
+        if (!this.apollo.use(projectNamespace)) {
+            this.apollo.createNamed(projectNamespace, {
+                cache: new InMemoryCache(),
+                link: this.httpLink.create({
+                    uri: graphqlUrl,
+                })
+            });
+        }
     }
-}
-//to fetch username from api
-public getUser(){
-    this.store.dispatch(WebSsoAuthActions.getWebSsoUserRequest());
-}
-resolve():Promise<any>{
-    return this.init();
-}
 
+    // Fetch username from API
+    public getUser() {
+        this.store.dispatch(WebSsoAuthActions.getWebSsoUserRequest());
+    }
 
+    resolve(): Promise<any> {
+        return this.init();
+    }
 
-//return an app config or display a dialog with an err msg
-
-public getAppConfig():Observable<AppConfig>{
-    return this.appConfigService.getConfig()
-    .pipe(
-        tap(
-            (appConfig:AppConfig)=>this.store.dispatch(AppConfigActions.getAppConfigSuccess({payload:appConfig}))),
-            catchError((error:Error)=>{
-                const initialState ={title:'Error',message:'Failed to fetch app config'};
-                this.modalService.show(AppConfigActions)
+    // Return an app config or display a dialog with an error message
+    public getAppConfig(): Observable<AppConfig> {
+        return this.appConfigService.getConfig().pipe(
+            tap((appConfig: AppConfig) => {
+                // Dispatch success action to store
+                this.store.dispatch(AppConfigActions.getAppConfigSuccess({ payload: appConfig }));
+            }),
+            catchError((error: Error) => {
+                // Display an error modal if config fetch fails
+                const initialState = { title: 'Error', message: 'Failed to fetch app config' };
+                this.modalService.show(initialState);  // Assuming the modal service can display the error message this way.
+                throw error; // Re-throw the error after showing the modal
             })
-        )
-    )
-}
-
+        );
+    }
 }
